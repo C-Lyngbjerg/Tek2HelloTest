@@ -23,7 +23,9 @@
 
 <!--HTML med et table der er hidden indtil knappen bliver trykket og vises derefter-->
 
-<h1>Weather forecast from openweather</h1>
+<h1>Teknologi 2 Eksamen 2021</h1>
+<h2>Jenkins Docker CICD Eksempel</h2>
+
 <div>Weather forecast</div>
 <input id="input" type="text" placeholder="Input ZIP here">
 <button>Update Weather Forecast</button>
@@ -56,14 +58,11 @@
                 url: "https://api.openweathermap.org/data/2.5/weather?zip="+zip.val()+",dk&units=metric&APPID=534cccd6bd0fcc47969301589853dbc8",
                 success: function(responseTxt, statusTxt, xhr) {
                     if (statusTxt == "success") {
-                        //alert("External content loaded successfully!");
-                        // $("#display").html("City: "+responseTxt.name +"<br> Weather: "+ responseTxt.weather[0].description + " <br> Temperature: " + responseTxt.main.temp);
                         $("#display").show();
                         $("#row1").html(responseTxt.name+", "+responseTxt.sys.country);
                         $("#row2").html(responseTxt.weather[0].description);
                         $("#row3").html(responseTxt.main.temp_min+" - "+responseTxt.main.temp_max);
                         $("#icon").attr("src","http://openweathermap.org/img/wn/"+responseTxt.weather[0].icon+"@2x.png");
-                        // alert(responseTxt.name + ":" + responseTxt.weather[0].description + " " + responseTxt.main.temp);
                     }
                     if (statusTxt == "error")
                         alert("Error: " + xhr.status + ": " + xhr.statusText);
